@@ -72,15 +72,6 @@ public class EnemyAIDetection : MonoBehaviour
 
         debugTimer = 0f;
 
-        Debug.Log(
-            $"Agent on NavMesh: {agent.isOnNavMesh} | " +
-            $"Stopped: {agent.isStopped} | " +
-            $"Speed setting: {agent.speed} | " +
-            $"Actual velocity: {agent.velocity.magnitude:F2} | " +
-            $"Remaining distance: {agent.remainingDistance:F2} | " +
-            $"Path pending: {agent.pathPending} | " +
-            $"Update Position: {agent.updatePosition}"
-        );
     }
 
     private void Detection()
@@ -131,16 +122,6 @@ public class EnemyAIDetection : MonoBehaviour
             if (path.corners.Length > 1)
             {
                 bool pathSet = agent.SetPath(path);
-
-                Debug.Log(
-                    $"Path set: {pathSet} | " +
-                    $"Corners: {path.corners.Length} | " +
-                    $"Agent position: {agent.nextPosition} | " +
-                    $"Enemy position: {transform.position} | " +
-                    $"Destination: {path.corners[path.corners.Length - 1]}"
-                );
-
-                Debug.Log("following path");
             }
         }
         else
